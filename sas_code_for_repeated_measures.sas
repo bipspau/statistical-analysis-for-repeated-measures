@@ -1,7 +1,7 @@
 /* create library */
 
 libname file 'X:\my_data_analysis\20170620\';
-proc import out= file.complete 
+proc import out= file.name 
  	datafile= "X:\my_data_analysis\20170620\20170620_sesqui.csv" 
             dbms=csv replace;
      getnames=yes;
@@ -10,11 +10,11 @@ run;
 
 /* select few rows and a columns only*/
 data file_name; 
-set file.complete (keep = ColName1  ColName2 ColName3);
+set file.name (keep = ColName1  ColName2 ColName3);
 run;
 
 data data_subset; 
-set file.complete (keep = ColName1  ColName2 ColName3);
+set file.name (keep = ColName1  ColName2 ColName3);
 if ColName1 in ("RowName1","RowName2", "RowName3");
 run;
 
