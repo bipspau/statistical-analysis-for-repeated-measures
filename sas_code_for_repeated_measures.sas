@@ -28,7 +28,7 @@ run;
 /* test covariance structure to figureout best fit
 change typ=un ar(1) cs */
 
-ods rtf file = "X:results\result_file.rtf"; 
+ods rtf file = "X:results\result_file_covar.rtf"; 
 proc mixed data=file_name covtest ;
 class treatment replication time;
 model total = treatment time treatment*time/residual;
@@ -37,7 +37,6 @@ ods output FitStatistics=FitUN (rename=(value=UN))
 Dimentions=ParmUN(rename=(value=NumUN));
 run;
 
-ods rtf file = "X:results\result_file.rtf"; 
 proc mixed data=file_name covtest ;
 class treatment replication time;
 model total = treatment time treatment*time/residual;
@@ -46,7 +45,6 @@ ods output FitStatistics=FitAR1 (rename=(value=AR1))
 Dimentions=ParmAR1(rename=(value=NumAR1));
 run;
 
-ods rtf file = "X:results\result_file.rtf_covar"; 
 proc mixed data=file_name covtest ;
 class treatment replication time;
 model total = treatment time treatment*time/residual;
